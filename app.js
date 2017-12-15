@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/',router);
+app.use('/api',router);
 
 app.listen(3000,(req,res)=>{
     console.log("app started");
