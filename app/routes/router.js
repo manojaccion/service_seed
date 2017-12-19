@@ -14,13 +14,26 @@ const donations = require('../mock/donations.json');
 const address = require('../mock/address.json');
 const card = require('../mock/card.json');
 
+const article = require('../mock/articles.json');
+
+const jwt = require('jsonwebtoken');
+
 const hello={"text":"hello World"};
+
 router.get('/hello',(req,res)=>{
     res.status(200).json(hello);
 });
 
-router.post('/authenticate',(req,res)=>{
+router.post('/signupnews',(req,res)=>{
+    res.status(200).json(req.body);
+})
 
+router.post('/signup',(req,res)=>{
+    res.status(200).json(req.body);
+});
+
+router.post('/authenticate',(req,res)=>{
+    res.status(200).json(req.body);
 });
 
 router.get('/logout',(req,res)=>{
@@ -64,13 +77,52 @@ router.get('/roles',(req,res)=>{
 router.get('/donations',(req,res)=>{
     res.status(200).json(donations);
 });
-
+/**
+ * Address Start
+ */
 router.get('/address',(req,res)=>{
     res.status(200).json(address);
 });
+
+router.get('/address/:id',(req,res)=>{
+    res.status(200).json(address);
+});
+router.post('/address',(req,res)=>{
+    res.status(200).json(req.body);
+});
+
+router.put('/address/:id',(req,res)=>{
+    res.status(200).json(req.body);
+});
+
+router.delete('/address/:id',(req,res)=>{
+    res.status(200).json(req.body);
+});
+/**
+ * Card start
+ */
 router.get('/card',(req,res)=>{
     res.status(200).json(card);
 });
 
+router.get('/card/:id',(req,res)=>{
+    res.status(200).json(card);
+});
+
+router.post('/card',(req,res)=>{
+    res.status(200).json(card);
+});
+
+router.put('/card/:id',(req,res)=>{
+    res.status(200).json(card);
+});
+
+router.delete('/card/:id',(req,res)=>{
+    res.status(200).json(card);
+});
+
+router.get('/articles',(req,res)=>{
+    res.status(200).json(article);
+});
 
 module.exports = router;

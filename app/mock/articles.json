@@ -1,1 +1,41 @@
-{}
+[
+    {
+    "title":"Awana PreConference at CPC",
+    "category":"Events",
+    "published":"date",
+    "short_desc":"asdsa",
+    "pic":"assets/img/article-img-1.png"
+    },
+    {
+    "title":"Awana PreConference at CPC",
+    "category":"Events",
+    "published":"date",
+    "short_desc":"asdsa",
+    "pic":"assets/img/article-img-1.png"
+    },
+    {
+    "title":"Awana PreConference at CPC",
+    "category":"Events",
+    "published":"new Date",
+    "short_desc":"asdsa",
+    "pic":"assets/img/article-img-1.png"
+    },{
+        "title":"Awana PreConference at CPC",
+        "category":"Events",
+        "published":"date",
+        "short_desc":"asdsa",
+        "pic":"assets/img/article-img-1.png"
+        },{
+            "title":"Awana PreConference at CPC",
+            "category":"Events",
+            "published":"date",
+            "short_desc":"asdsa",
+            "pic":"assets/img/article-img-1.png"
+            },{
+                "title":"Awana PreConference at CPC",
+                "category":"Events",
+                "published":"date",
+                "short_desc":"asdsa",
+                "pic":"assets/img/article-img-1.png"
+                }
+]
