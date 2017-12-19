@@ -20,6 +20,19 @@ const jwt = require('jsonwebtoken');
 
 const hello={"text":"hello World"};
 
+router.get('/',(req,res)=>{
+    let routeData=[];
+    
+    router.stack.forEach(element => {
+        let obj={};
+        obj.path=element.route.path;
+        obj.method=element.route.stack[0].method;
+        routeData.push(obj);
+    });
+    //routeData.push(router.stack);
+    res.status(200).json(routeData);
+});
+
 router.get('/hello',(req,res)=>{
     res.status(200).json(hello);
 });
@@ -29,6 +42,7 @@ router.post('/signupnews',(req,res)=>{
 })
 
 router.post('/signup',(req,res)=>{
+
     res.status(200).json(req.body);
 });
 
