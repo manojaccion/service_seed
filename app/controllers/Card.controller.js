@@ -4,47 +4,42 @@ let Card = require('../models/Card.model');
  * Card Start
  */
 router.get('/',(req,res)=>{
-    Card.find({},function(err,result){
-        if(err) throw err;
-        console.log(result);
-        res.status(200).json(result);
-    });
+    Card.find({}).then(
+        (result)=>{res.status(200).json(result);},
+        (err)=>{res.status(400).json(err);}
+    )
+    .catch((error)=>{throw error});
 });
 
 router.get('/:id',(req,res)=>{
-    Card.find({},function(err,result){
-        if(err) {
-            res.status(400).json(err);
-        }else{
-            console.log(result);
-            res.status(200).json(result);
-        }
+    Card.findOne({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (error)=>{res.status(400).json(error);})
+    .catch((error)=>{
+        throw error;
     });
 });
 router.post('/',(req,res)=>{
     var card = new Card(req.body);
-    card.save((err)=>{
-        if(err){
-            res.status(400).json(err);
-        }else{
-            res.status(200).json({data:req.body});
-        }
-    });
+    card.save().then(
+        (result)=>{res.status(200).json(result)},
+        (error)=>{res.status(400).json(error)}
+    )
+    .catch((error)=>{throw error});
 });
 
 router.put('/:id',(req,res)=>{
-    var card = new Card(req.body);
-    card.save((err)=>{
-        if(err){
-            res.status(400).json(err);
-        }else{
-            res.status(200).json({data:req.body});
-        }
-    });
+    Card.findByIdAndUpdate({_id:req.params.id},req.body).then(
+        (result)=>{;res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
 
 router.delete('/:id',(req,res)=>{
-    res.status(200).json(req.body);
+    Card.findByIdAndRemove({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
 
 module.exports = router;

@@ -3,48 +3,46 @@ let Address = require('../models/Address.model');
 /**
  * Address Start
  */
+// Show All Address
 router.get('/',(req,res)=>{
-    Address.find({},function(err,result){
-        if(err) throw err;
-        console.log(result);
-        res.status(200).json(result);
-    });
+    Address.find({}).then(
+        (result)=>{res.status(200).json(result);},
+        (err)=>{res.status(400).json(err);}
+    )
+    .catch((error)=>{throw error});
 });
 
+// Specific id based address
 router.get('/:id',(req,res)=>{
-    Address.find({},function(err,result){
-        if(err) {
-            res.status(400).json(err);
-        }else{
-            console.log(result);
-            res.status(200).json(result);
-        }
+    Address.findOne({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (error)=>{res.status(400).json(error);})
+    .catch((error)=>{
+        throw error;
     });
 });
+// Save Address
 router.post('/',(req,res)=>{
     var addr = new Address(req.body);
-    addr.save((err)=>{
-        if(err){
-            res.status(400).json(err);
-        }else{
-            res.status(200).json({data:req.body});
-        }
-    });
+    addr.save().then(
+        (result)=>{res.status(200).json(result)},
+        (error)=>{res.status(400).json(error)}
+    )
+    .catch((error)=>{throw error});
 });
-
+// Update Address
 router.put('/:id',(req,res)=>{
-    var addr = new Address(req.body);
-    addr.save((err)=>{
-        if(err){
-            res.status(400).json(err);
-        }else{
-            res.status(200).json({data:req.body});
-        }
-    });
+    Address.findByIdAndUpdate({_id:req.params.id},req.body).then(
+        (result)=>{;res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
-
+// Delete Address
 router.delete('/:id',(req,res)=>{
-    res.status(200).json(req.body);
+    Address.findByIdAndRemove({_id:req.params.id}).then(
+        (result)=>{res.status(200).json(result);},
+        (error)=>{res.status(400).json(err);}
+    ).catch((error)=>{throw error});
 });
 
 module.exports = router;
