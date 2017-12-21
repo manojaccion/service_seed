@@ -14,6 +14,15 @@ const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 
 const hello={"text":"hello World"};
+
+var Emma = require('emma-sdk');
+var emma = new Emma({
+    publicKey: "550cc5672bbabf203c16",
+    privateKey: "550cc5672bbabf203c16",
+    accountID: 1808546
+  });
+
+
 /** Controllers */
 
 const addressController = require('../controllers/Address.controller');
@@ -60,6 +69,9 @@ router.get('/articles',(req,res)=>{
 });
 router.post('/newssignup',(req,res)=>{
     // emma api need to implement
+    
+    
+    
     res.status(200).json(req.body);
 })
 
