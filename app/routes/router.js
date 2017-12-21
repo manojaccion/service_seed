@@ -58,5 +58,9 @@ router.get('/donations',(req,res)=>{
 router.get('/articles',(req,res)=>{
     res.status(200).json(article);
 });
+router.post('/newssignup',(req,res)=>{
+    // emma api need to implement
+    res.status(200).json(req.body);
+})
 
 module.exports = router;
