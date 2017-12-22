@@ -17,8 +17,8 @@ const hello={"text":"hello World"};
 
 var Emma = require('emma-sdk');
 var emma = new Emma({
-    publicKey: "550cc5672bbabf203c16",
-    privateKey: "550cc5672bbabf203c16",
+    publicKey: "srikanth.kadiyala@accionlabs.com",
+    privateKey: "myAwana123",
     accountID: 1808546
   });
 
@@ -69,10 +69,14 @@ router.get('/articles',(req,res)=>{
 });
 router.post('/newssignup',(req,res)=>{
     // emma api need to implement
-    
-    
-    
-    res.status(200).json(req.body);
+    emma.member.signup(req.body,(error,result)=>{
+        console.log(error);
+        if(result){
+            res.status(200).send(result);
+        }else{
+            res.status(400).send(error);
+        }
+    });
 })
 
 module.exports = router;
