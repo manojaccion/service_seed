@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/manojaccion/service_seed#readme",
   "dependencies": {
+    "async": "^2.6.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "emma-sdk": "0.0.3",
