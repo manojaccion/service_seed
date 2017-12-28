@@ -6,6 +6,7 @@ const express = require('express');
 
 const app= express();
 const router = require('./app/routes/router');
+const apirouter = require('./app/routes/apirouter');
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
@@ -18,6 +19,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/api',router);
+app.use('/api/v1',apirouter);
 
 app.listen(3000,(req,res)=>{
     console.log("app started");

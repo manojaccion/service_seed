@@ -1,15 +1,9 @@
 const router = require('express').Router();
-// const users= require('../mock/users.json');
-// const userprofile= require('../mock/userprofile.json');
-// const churchs= require('../mock/churchs.json');
-// const churchprofile = require('../mock/churchprofile.json');
-// const orders = require('../mock/orders.json');
-// const order_itemlist = require('../mock/orderlist.json');
-// const order_detail = require('../mock/orderdetail.json');
-// const roles = require('../mock/roles.json');
-// const donations = require('../mock/donations.json');
-// const card = require('../mock/card.json');
  const article = require('../mock/articles.json');
+ const mongoose = require('mongoose');
+ var promise = mongoose.connect('mongodb://localhost/awana', {useMongoClient: true});
+ const bluebird = require('bluebird');
+ mongoose.Promise = bluebird;
 
 const jwt = require('jsonwebtoken');
 
