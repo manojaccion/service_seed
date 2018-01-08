@@ -1,5 +1,5 @@
 const router = require('express').Router();
- const article = require('../mock/articles.json');
+const article = require('../mock/articles.json');
  const mongoose = require('mongoose');
  var promise = mongoose.connect('mongodb://localhost/awana', {useMongoClient: true});
  const bluebird = require('bluebird');

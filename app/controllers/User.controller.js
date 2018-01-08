@@ -18,6 +18,9 @@ userRouter.get('/:id',(req,res)=>{
     .catch((error)=>{throw error});
 });
 
+
+
+
 userRouter.post('/signup',(req,res)=>{
     var usr = new UserModel(req.body);
     usr.save().then(

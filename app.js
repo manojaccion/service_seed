@@ -21,6 +21,8 @@ app.use(function(req, res, next) {
 app.use('/api',router);
 app.use('/api/v1',apirouter);
 
+app.disable('x-powered-by');
+
 app.listen(3000,(req,res)=>{
     console.log("app started");
 });
