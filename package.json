@@ -21,14 +21,18 @@
     "async": "^2.6.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
-    "emma-sdk": "0.0.3",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.7",
-    "morgan": "^1.9.0"
-
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.4.2",
+    "nodemailer-express-handlebars": "^3.0.0",
+    "tracer": "^0.8.12",
+    "dotenv": "^4.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.5"
+    "nodemon": "^1.12.5",
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
   }
 }

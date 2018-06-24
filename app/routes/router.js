@@ -9,14 +9,6 @@ const jwt = require('jsonwebtoken');
 
 const hello={"text":"hello World"};
 
-var Emma = require('emma-sdk');
-var emma = new Emma({
-    publicKey: "srikanth.kadiyala@accionlabs.com",
-    privateKey: "myAwana123",
-    accountID: 1808546
-  });
-
-
 /** Controllers */
 
 const addressController = require('../controllers/Address.controller');
